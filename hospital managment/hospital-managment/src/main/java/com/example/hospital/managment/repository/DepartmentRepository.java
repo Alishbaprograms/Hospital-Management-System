@@ -5,5 +5,4 @@ import com.example.hospital.managment.entity.Department;
 
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Long> {
-    // Custom queries can be added here
 }

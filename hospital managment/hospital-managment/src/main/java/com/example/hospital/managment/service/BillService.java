@@ -22,7 +22,6 @@ public class BillService {
         this.patientRepo = patientRepo;
     }
 
-    // Create a new bill
     public Bill createBill(Long patientId, Double amount) {
         Patient patient = patientRepo.findById(patientId)
                 .orElseThrow(() -> new RuntimeException("Patient not found"));
@@ -34,7 +33,6 @@ public class BillService {
         return billRepo.save(bill);
     }
 
-    // Get all bills for a patient
     public List<Bill> getBills(Long patientId) {
         Patient patient = patientRepo.findById(patientId)
                 .orElseThrow(() -> new RuntimeException("Patient not found"));
@@ -42,7 +40,6 @@ public class BillService {
         return billRepo.findAllByPatient(patient);
     }
 
-    // Mark a bill as paid
     public Bill markBillAsPaid(Long billId) {
         Bill bill = billRepo.findById(billId)
                 .orElseThrow(() -> new RuntimeException("Bill not found"));
@@ -51,7 +48,6 @@ public class BillService {
         return billRepo.save(bill);
     }
 
-    // Mark a bill as cancelled
     public Bill markBillAsCancelled(Long billId) {
         Bill bill = billRepo.findById(billId)
                 .orElseThrow(() -> new RuntimeException("Bill not found"));

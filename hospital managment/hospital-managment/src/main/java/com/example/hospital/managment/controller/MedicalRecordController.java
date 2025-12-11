@@ -17,7 +17,6 @@ public class MedicalRecordController {
         this.medicalRecordService = medicalRecordService;
     }
 
-    // Create a new medical record
     @PostMapping("/create")
     public MedicalRecord createMedicalRecord(@RequestParam Long patientId,
                                              @RequestParam Long doctorId,
@@ -26,13 +25,11 @@ public class MedicalRecordController {
         return medicalRecordService.createMedicalRecord(patientId, doctorId, diagnosis, prescription);
     }
 
-    // Get all medical records for a patient
     @GetMapping("/{patientId}")
     public List<MedicalRecord> getMedicalRecords(@PathVariable Long patientId) {
         return medicalRecordService.getMedicalRecords(patientId);
     }
 
-    // Update a medical record
     @PutMapping("/update")
     public MedicalRecord updateMedicalRecord(@RequestParam Long recordId,
                                              @RequestParam String diagnosis,

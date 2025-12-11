@@ -17,5 +17,5 @@ public class LaboratoryTest {
     private String testResult; // e.g., positive, negative, normal, abnormal
 
 
-    // Getters and Setters
+   
 }

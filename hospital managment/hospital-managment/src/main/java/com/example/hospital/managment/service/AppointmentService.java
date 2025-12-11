@@ -34,21 +34,17 @@ public class AppointmentService {
                                        Long doctorId,
                                        LocalDateTime dateTime) {
 
-        // Check if the patient exists
         Patient patient = patientRepo.findById(patientId)
                 .orElseThrow(() -> new RuntimeException("Patient not found"));
 
-        // Check if the doctor exists
         Doctor doctor = doctorRepo.findById(doctorId)
                 .orElseThrow(() -> new RuntimeException("Doctor not found"));
 
-        // Check if the doctor is already booked at the given time
         Optional<Appointment> existingAppointment = appointmentRepo.findByDoctorAndAppointmentDateTime(doctor, dateTime);
         if (existingAppointment.isPresent() && existingAppointment.get().getStatus() != Appointment.Status.COMPLETED) {
             throw new RuntimeException("The doctor already has an appointment at this time");
         }
 
-        // Create new appointment if no conflict
         Appointment appt = new Appointment();
         appt.setPatient(patient);
         appt.setDoctor(doctor);
@@ -62,7 +58,6 @@ public class AppointmentService {
         Appointment appointment = appointmentRepo.findById(appointmentId)
                 .orElseThrow(() -> new RuntimeException("Appointment not found"));
 
-        // Mark appointment as completed
         appointment.setStatus(Appointment.Status.COMPLETED);
         return appointmentRepo.save(appointment);
     }

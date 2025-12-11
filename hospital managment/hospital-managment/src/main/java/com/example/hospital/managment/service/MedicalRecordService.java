@@ -43,7 +43,6 @@ public class MedicalRecordService {
         return medicalRecordRepo.save(record);
     }
 
-    // Get all medical records for a patient
     public List<MedicalRecord> getMedicalRecords(Long patientId) {
         Patient patient = patientRepo.findById(patientId)
                 .orElseThrow(() -> new RuntimeException("Patient not found"));
@@ -51,7 +50,6 @@ public class MedicalRecordService {
         return medicalRecordRepo.findAllByPatient(patient);
     }
 
-    // Update a medical record
     public MedicalRecord updateMedicalRecord(Long recordId, String diagnosis, String prescription) {
         MedicalRecord record = medicalRecordRepo.findById(recordId)
                 .orElseThrow(() -> new RuntimeException("Medical Record not found"));

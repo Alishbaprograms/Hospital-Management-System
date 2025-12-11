@@ -13,14 +13,14 @@ public class Patient {
 
     private String firstName;
     private String lastName;
-    private String gender; // "Male", "Female", etc.
+    private String gender; 
     private LocalDate dateOfBirth;
 
     private String phone;
     private String email;
     private String address;
 
-    // getters & setters
+ 
 
     public Long getId() {
         return id;

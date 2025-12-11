@@ -14,7 +14,6 @@ public class Department {
 
     private String description;
 
-    // One department can have many doctors
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Doctor> doctors;
 

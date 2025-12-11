@@ -13,7 +13,7 @@ public class Doctor {
     private Long id;
 
     private String fullName;
-    private String specialization; // e.g. "Cardiologist"
+    private String specialization; 
     private String phone;
     @ManyToOne
     @JoinColumn(name = "department_id")
@@ -21,7 +21,6 @@ public class Doctor {
 
 
 
-    // getters & setters
 
     public Long getId() {
         return id;
