@@ -17,6 +17,7 @@ public class Patient {
     private LocalDate dateOfBirth;
 
     private String phone;
+    @Column(nullable = false, unique = true)
     private String email;
     private String address;
 
